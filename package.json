@@ -1,0 +1,14 @@
+{
+    "name": "board",
+    "version": "1.0.0",
+    "scripts": {
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "type": "commonjs",
+    "devDependencies": {
+        "prettier": "3.9.9",
+        "prettier-plugin-java": "2.11.0"
+    },
+    "private": true
+}
