@@ -1,3 +1,9 @@
 spring:
-    application:
-        name: board
+  application:
+    name: board
+  datasource:
+    url: jdbc:h2:mem:board
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
