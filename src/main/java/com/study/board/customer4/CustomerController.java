@@ -1,5 +1,6 @@
 package com.study.board.customer4;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerResponse> create(@RequestBody CustomerCreateRequest request) {
+    public ResponseEntity<CustomerResponse> create(@Valid @RequestBody CustomerCreateRequest request) {
 
         CustomerResponse response = customerService.create(request);
 

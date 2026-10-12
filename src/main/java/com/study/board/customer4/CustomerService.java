@@ -3,9 +3,7 @@ package com.study.board.customer4;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -24,38 +22,24 @@ public class CustomerService {
     }
 
     public List<CustomerResponse> list() {
-        List<Customer> customers = customerRepository.findAll();
-
-        List<CustomerResponse> responses = new ArrayList<>();
-
-        for (Customer customer : customers) {
-            responses.add(CustomerResponse.from(customer));
-        }
-
-        return responses;
+        return customerRepository.findAll().stream()
+                .map(CustomerResponse::from)
+                .toList();
     }
 
     public CustomerResponse detail(Long id) {
-        Optional<Customer> result = customerRepository.findById(id);
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException(id));
 
-        if (result.isEmpty()) {
-            throw new CustomerNotFoundException(id);
-        }
-
-        Customer customer = result.get();
 
         return CustomerResponse.from(customer);
     }
 
     @Transactional
     public CustomerResponse update(Long id, CustomerUpdateRequest request) {
-        Optional<Customer> result = customerRepository.findById(id);
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException(id));
 
-        if (result.isEmpty()) {
-            throw new CustomerNotFoundException(id);
-        }
-
-        Customer customer = result.get();
         customer.update(request.name(), request.email());
 
         return CustomerResponse.from(customer);
@@ -63,13 +47,8 @@ public class CustomerService {
 
     @Transactional
     public void delete(Long id) {
-        Optional<Customer> result = customerRepository.findById(id);
-
-        if (result.isEmpty()) {
-            throw new CustomerNotFoundException(id);
-        }
-
-        Customer customer = result.get();
+        Customer customer = customerRepository.findById(id)
+                .orElseThrow(() -> new CustomerNotFoundException(id));
 
         customerRepository.delete(customer);
     }
