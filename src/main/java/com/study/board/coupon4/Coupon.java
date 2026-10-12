@@ -36,7 +36,7 @@ public class Coupon {
     public String getName() {
         return name;
     }
- 
+
     public String getCode() {
         return code;
     }

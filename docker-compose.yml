@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: board-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: board
+      MYSQL_USER: board
+      MYSQL_PASSWORD: board1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - board-mysql-data:/var/lib/mysql
+
+volumes:
+  board-mysql-data:
+    name: board-mysql-data

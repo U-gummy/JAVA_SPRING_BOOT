@@ -1,9 +1,21 @@
+#spring:
+#  application:
+#    name: board
+#  datasource:
+#    url: jdbc:h2:mem:board
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+
 spring:
   application:
     name: board
   datasource:
-    url: jdbc:h2:mem:board
+    url: jdbc:mysql://localhost:3306/board
+    username: board
+    password: board1234
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
