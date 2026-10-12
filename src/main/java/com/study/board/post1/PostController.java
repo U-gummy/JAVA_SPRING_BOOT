@@ -1,4 +1,4 @@
-package com.study.board.post;
+package com.study.board.post1;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

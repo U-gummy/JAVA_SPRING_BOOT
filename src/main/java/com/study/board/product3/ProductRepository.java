@@ -1,4 +1,4 @@
-package com.study.board.product;
+package com.study.board.product3;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.study.board.post;
+package com.study.board.post1;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

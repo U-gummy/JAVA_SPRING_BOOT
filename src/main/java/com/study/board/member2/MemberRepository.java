@@ -1,4 +1,4 @@
-package com.study.board.member;
+package com.study.board.member2;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
