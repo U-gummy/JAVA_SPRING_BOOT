@@ -1,8 +1,6 @@
 package com.study.board.common;
 
-import com.study.board.coupon4.CouponNotFoundException;
-import com.study.board.customer4.CustomerNotFoundException;
-import com.study.board.product3.ProductNotFoundException;
+import com.study.board.product.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -19,19 +17,6 @@ public class GlobalExceptionHandler {
         ErrorResponse response = new ErrorResponse(e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
-
-    @ExceptionHandler(CustomerNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleCustomerNotFound(CustomerNotFoundException e) {
-        ErrorResponse response = new ErrorResponse(e.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-    }
-
-    @ExceptionHandler(CouponNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleCouponNotFound(CouponNotFoundException e) {
-        ErrorResponse response = new ErrorResponse(e.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-    }
-
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ValidationErrorResponse> handleValidation(MethodArgumentNotValidException e) {

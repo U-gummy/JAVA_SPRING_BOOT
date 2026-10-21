@@ -1,4 +1,4 @@
-package com.study.board.coupon4;
+package com.study.board.product;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/coupons")
+@RequestMapping("/api/products")
 public class ProductController {
     private final ProductService productService;
 

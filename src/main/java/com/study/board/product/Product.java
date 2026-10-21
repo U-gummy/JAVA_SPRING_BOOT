@@ -1,4 +1,4 @@
-package com.study.board.coupon4;
+package com.study.board.product;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,19 +11,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String code;
+    private String productCode;
 
     protected Product() {
     }
 
-    public Product(String name, String code, Integer discountRate) {
+    public Product(String name, String productCode) {
         this.name = name;
-        this.code = code;
+        this.productCode = productCode;
     }
 
-    public void update(String name, String code, Integer discountRate) {
+    public void update(String name, String productCode) {
         this.name = name;
-        this.code = code;
+        this.productCode = productCode;
     }
 
     public Long getId() {
@@ -34,7 +34,7 @@ public class Product {
         return name;
     }
 
-    public String getCode() {
-        return code;
+    public String getProductCode() {
+        return productCode;
     }
 }

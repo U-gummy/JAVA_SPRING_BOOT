@@ -1,4 +1,4 @@
-package com.study.board.coupon4;
+package com.study.board.product;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,7 +29,7 @@ public class ProductService {
 
 
     public ProductResponse create(ProductCreateRequest request) {
-        Product product = new Product(request.name(), request.code(), request.discountRate());
+        Product product = new Product(request.name(), request.productCode());
 
         Product saved = productRepository.save(product);
 
@@ -42,7 +42,7 @@ public class ProductService {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
 
-        product.update(request.name(), request.code(), request.discountRate());
+        product.update(request.name(), request.productCode());
 
         return ProductResponse.from(product);
 

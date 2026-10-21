@@ -1,8 +1,8 @@
-package com.study.board.coupon4;
+package com.study.board.product;
 
-public record ProductResponse(Long id, String name, String code, Integer discountRate) {
+public record ProductResponse(Long id, String name, String productCode) {
 
     public static ProductResponse from(Product product) {
-        return new ProductResponse(product.getId(), product.getName(), product.getCode(), product.getDiscountRate());
+        return new ProductResponse(product.getId(), product.getName(), product.getProductCode());
     }
 }

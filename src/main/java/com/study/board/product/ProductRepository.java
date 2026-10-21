@@ -1,4 +1,4 @@
-package com.study.board.coupon4;
+package com.study.board.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
