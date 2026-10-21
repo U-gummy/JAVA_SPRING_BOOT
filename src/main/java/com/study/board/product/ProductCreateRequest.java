@@ -2,7 +2,7 @@ package com.study.board.coupon4;
 
 import jakarta.validation.constraints.*;
 
-public record CouponUpdateRequest(
+public record ProductCreateRequest(
         @NotBlank(message = "쿠폰 이름은 필수입니다.") String name,
 
         @NotBlank(message = "쿠폰 코드는 필수입니다.")

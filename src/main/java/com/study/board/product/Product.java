@@ -1,4 +1,4 @@
-package com.study.board.member2;
+package com.study.board.coupon4;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,22 +6,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Member {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
+    private String code;
 
-    private String email;
-
-
-    protected Member() {
+    protected Product() {
     }
 
-    public Member(String name, String email) {
+    public Product(String name, String code, Integer discountRate) {
         this.name = name;
-        this.email = email;
+        this.code = code;
+    }
+
+    public void update(String name, String code, Integer discountRate) {
+        this.name = name;
+        this.code = code;
     }
 
     public Long getId() {
@@ -32,7 +34,7 @@ public class Member {
         return name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCode() {
+        return code;
     }
 }

@@ -1,5 +1,6 @@
-package com.study.board.product3;
+package com.study.board.coupon4;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/coupons")
 public class ProductController {
     private final ProductService productService;
 
@@ -30,14 +31,14 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductResponse> create(@RequestBody ProductCreateRequest request) {
+    public ResponseEntity<ProductResponse> create(@Valid @RequestBody ProductCreateRequest request) {
         ProductResponse response = productService.create(request);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @RequestBody ProductUpdateRequest request) {
+    public ResponseEntity<ProductResponse> update(@PathVariable Long id, @Valid @RequestBody ProductUpdateRequest request) {
         ProductResponse response = productService.update(id, request);
 
         return ResponseEntity.ok(response);
