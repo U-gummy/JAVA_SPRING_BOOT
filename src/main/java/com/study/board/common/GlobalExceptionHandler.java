@@ -1,5 +1,6 @@
 package com.study.board.common;
 
+import com.study.board.category.CategoryNotFoundException;
 import com.study.board.product.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +30,12 @@ public class GlobalExceptionHandler {
         ValidationErrorResponse response = new ValidationErrorResponse("입력값이 올바르지 않습니다.", errors);
         return ResponseEntity.badRequest().body(response);
     }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleCategoryNotFound(CategoryNotFoundException e) {
+        ErrorResponse response = new ErrorResponse(e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    }
+
 }
 
