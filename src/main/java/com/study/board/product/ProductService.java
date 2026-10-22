@@ -50,10 +50,12 @@ public class ProductService {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
 
-        product.update(request.name(), request.productCode());
+        Category category = categoryRepository.findById(request.categoryId())
+                .orElseThrow(() -> new CategoryNotFoundException(request.categoryId()));
+
+        product.update(request.name(), request.productCode(), category);
 
         return ProductResponse.from(product);
-
     }
 
     @Transactional

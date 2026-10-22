@@ -24,5 +24,12 @@ public class CategoryService {
                 .toList();
     }
 
+    public CategoryResponse detail(Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new CategoryNotFoundException(id));
+
+        return CategoryResponse.from(category);
+    }
+
 
 }

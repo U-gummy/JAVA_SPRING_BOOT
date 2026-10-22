@@ -24,9 +24,10 @@ public class Product {
         this.category = category;
     }
 
-    public void update(String name, String productCode) {
+    public void update(String name, String productCode, Category category) {
         this.name = name;
         this.productCode = productCode;
+        this.category = category;
     }
 
     public Long getId() {

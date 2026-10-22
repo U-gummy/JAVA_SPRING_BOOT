@@ -28,4 +28,10 @@ public class CategoryController {
         return ResponseEntity.ok(responses);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CategoryResponse> detail(@PathVariable Long id) {
+        CategoryResponse response = categoryService.detail(id);
+        return ResponseEntity.ok(response);
+    }
+
 }

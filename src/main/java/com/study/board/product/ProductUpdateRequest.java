@@ -6,6 +6,8 @@ public record ProductUpdateRequest(
         @NotBlank(message = "상품 이름은 필수입니다.") String name,
 
         @NotBlank(message = "상품 코드는 필수입니다.")
-        @Size(min = 4, max = 20, message = "상품 코드는 4~20자여야 합니다.") String productCode
+        @Size(min = 4, max = 20, message = "상품 코드는 4~20자여야 합니다.") String productCode,
+
+        @NotNull(message = "카테고리는 필수입니다.") Long categoryId
 ) {
 }
