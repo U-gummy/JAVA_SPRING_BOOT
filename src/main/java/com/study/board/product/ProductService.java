@@ -26,7 +26,7 @@ public class ProductService {
     }
 
     public ProductResponse detail(Long id) {
-        Product product = productRepository.findById(id)
+        Product product = productRepository.findByIdWithCategory(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
 
         return ProductResponse.from(product);
