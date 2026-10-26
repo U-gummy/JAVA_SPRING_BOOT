@@ -50,4 +50,9 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @GetMapping("/{id}/cache-test")
+    public ResponseEntity<String> cacheTest(@PathVariable Long id) {
+        return ResponseEntity.ok(productService.cacheTest(id));
+    }
+
 }

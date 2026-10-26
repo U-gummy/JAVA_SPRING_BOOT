@@ -1,6 +1,7 @@
 package com.study.board.category;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    @Transactional
     public CategoryResponse create(CategoryCreateRequest request) {
         Category category = new Category(request.name());
         Category saved = categoryRepository.save(category);

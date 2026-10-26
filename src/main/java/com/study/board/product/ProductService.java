@@ -70,4 +70,13 @@ public class ProductService {
         productRepository.delete(product);
     }
 
+    @Transactional
+    public String cacheTest(Long id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+
+        System.out.println("===== findById 끝, getName() 호출 전");
+        return product.getCategory().getName();
+    }
+
 }
