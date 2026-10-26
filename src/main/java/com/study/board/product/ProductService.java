@@ -20,7 +20,7 @@ public class ProductService {
     }
 
     public List<ProductResponse> list() {
-        return productRepository.findAll().stream()
+        return productRepository.findAllWithCategory().stream()
                 .map(ProductResponse::from)
                 .toList();
     }
