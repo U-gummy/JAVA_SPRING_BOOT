@@ -33,7 +33,7 @@ public class ProductService {
         return ProductResponse.from(product);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public ProductResponse create(ProductCreateRequest request) {
         Category category = categoryRepository.findById(request.categoryId())
                 .orElseThrow(() -> new CategoryNotFoundException(request.categoryId()));
@@ -41,6 +41,7 @@ public class ProductService {
         Product product = new Product(request.name(), request.productCode(), category);
 
         Product saved = productRepository.save(product);
+
 
         return ProductResponse.from(saved);
     }
